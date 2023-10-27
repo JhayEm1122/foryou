@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapii</title>
+    <style>
+        body {
+            background-color: black; 
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: white;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .picture-frame {
+            border: 10px solid #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+        #invitation {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        .invitation-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: goldenrod;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .invitation-button:hover {
+            background-color: black;
+            transform: translateY(-3px);
+        }
+
+        @keyframes birthdayFloat {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        img.birthday-effect {
+            animation: birthdayFloat 2s infinite;
+        }
+
+        /* Media Query for Mobile */
+        @media (max-width: 768px) {
+            .button-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Happy Birthday Trixie!</h1>
+    <div class="picture-frame">
+        <img class="birthday-effect" src="/For Trix/TrixieB.png" alt="Birthday Trix">
+    </div>
+    <h1>Do you want to open this letter?</h1>
+    <div id="invitation">
+        <div class="button-container">
+            <button class="invitation-button" onclick="openInvitation()">Yes</button>
+            <button class="invitation-button" onmouseover="closeInvitation()">No</button>
+        </div>
+    </div>
+
+    <script>
+        function openInvitation() {
+            alert("HELLOOO HAPPY² BIRTHDAY TRIXIEEE!!! I hope nabasahan mo ni sa date mismo sang special day mo hehe ging obra ko ni  sng Oct. 21, 2023 pa  actually so advance lang me para swabee eyy HAHAHAH special letter for a special  person nga nakilala ko. Anyway thank you so much sa opportunity nga makita ka in person and also sa trust, halungan ko gd na nga d maguba. Kag paki halong  lang gali  sang drawing remembrance kona para smo hehe para sa pila ka adlaw madumduman mopako everytime nga makita mo na, wy man ko naghmbal nga malipaton ka but natural lang mana sa taho kay may kanyang kanya man ta abi nga ginabusyhan kag life. Ako ni  gali si natoy na mahal na mahal ka ems HAHAHA  pate a, gusto ko lang gd magpa thank you for everything, especially sa pag support sa page ko dako nana nga bagay para sakon and na appreciate ko gd ikaw/kamo, kag isa ka sa rasun kung ngaa na motivate pagid ko sa pag study kag sa life hihi jsko ikw pabaa? Si crushiecakes nani HAHAHAH also thank you so much sa pag sapak sakon maski kis a sometimes madalas gasinabad ko, but still grateful parin kay maski busy ka nakuha mo pa magsapak sakon huhu sorry aken. IDK lng kung oa/corny ni para smo mga letter²/long message  like this pero hindi mansya drama or mmk ah nagtingob lng man mga gusto ko hambalon and normal lng man para sakon basta special kw HAHAHA. I wish you all the best ah basta halungan mo lang gd always self mo ok? Kay kung di ka, Dali di ako mahalong smo hahahah eme buligan taka 🙃 Seryoso naaaa, skwela kalang mayo  HAHAAH para na sa future, e enjoy lang ang life kis a lng na and ari lng man ko di para smo, hindi lang man ako nga taho ang ga support smo pero just count me in lang, I'm one of them😙. I want you to enjoy your life with me tni bskakanavvkabahau ay hala hindi mo mani guro pagbasahon tanan ah hahahah sa kadamo. Pero you know what? I'm so very thankful gd ya bala nga nakilala kay kabuot gd ya smo superr pwede kana maging akon, ay char lang hahaha nga medyo tuod. Okiee Enjoyy your day Trixie Margarette Castro. Sahulo kopana name mo ya kaysa lesson namon. Padayuna lang pagiging mabait na bata  ah para + points ka sa langit. God bless you po! I Hope to see you soon again🥰 Happy Birthday sa liwat!!! 🥳 Labyah!♥️ truly yours, -Jhay Em ");
+        }
+
+        function closeInvitation() {
+            alert("yoks E open nalang bala HAHAHA");
+        }
+    </script>
+</body>
+</html>

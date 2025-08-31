@@ -1,145 +1,123 @@
-//maam zesty code 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.util.*;
-
-// Extends JFrame
-public class CovidMonitor extends JFrame {
-    
-    // Set all to private
-    private static Queue<Patient> queue = new LinkedList<>();
-    private JTextArea textArea;
-    private JButton addButton;
-    private JButton processButton;
-    
-    // Set the constructor to public
-    public CovidMonitor() {       
-        // Title
-        setTitle("Covid-19 Monitor");
-        
-        // Label at the top 
-        JLabel titleLabel = new JLabel("Covid-19 Patient Monitoring", SwingConstants.CENTER);
-        titleLabel.setFont(titleLabel.getFont().deriveFont(24.0f));
-        add(titleLabel, BorderLayout.NORTH);
-        
-        // Label at the bottom
-        JLabel helloLabel = new JLabel("Phinmaed Case Program", SwingConstants.LEFT);
-        add(helloLabel, BorderLayout.SOUTH);
-        
-        // Customize the frame
-        setSize(400, 600);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-   
-        // Create a text area
-        textArea = new JTextArea();
-        
-        // Make the it not editable
-        textArea.setEditable(false);
-        
-        // Crate a scrollpane and add the textarea
-        JScrollPane pane = new JScrollPane(textArea);
-        
-        // Add the scrollpane to the frame and place it to the center
-        add(pane, BorderLayout.CENTER);
-        
-        // Add button
-        addButton = new JButton("Add Patient");
-        // ActionListener of add button
-        addButton.addActionListener(new AddButtonListener());
-
-        // Process button
-        processButton = new JButton("Process Patient");
-        // ActionListener of process button
-        processButton.addActionListener(new ProcessButtonListener());
-        
-        // Create a panel for buttons
-        JPanel buttonPanel = new JPanel();
-        // Add the buttons to the buttonPanel
-        buttonPanel.add(addButton);
-        buttonPanel.add(processButton);
-        
-        // Add the buttonPanel to frame and place it to the bottom
-        add(buttonPanel, BorderLayout.SOUTH);
-        
-        // Set the visible of frame to true
-        setVisible(true);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>I Like You Too</title>
+  <style>
+    :root{
+      --bg1:#ffdee9;
+      --bg2:#b5fffc;
+      --card:#ffffffcc;
+      --text:#1f2a37;
+      --accent:#ff3b81;
     }
 
-    // Function then the add button is clicked
-    private class AddButtonListener implements ActionListener {
-        
-        // Override
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            
-            // JOption pane for firstname, lastname and symptoms
-            String firstName = JOptionPane.showInputDialog(CovidMonitor.this, "Enter patient's first name");
-            String lastName = JOptionPane.showInputDialog(CovidMonitor.this, "Enter patient's last name");
-            String symptoms = JOptionPane.showInputDialog(CovidMonitor.this, "Enter patient's symptoms");
-            
-            // Add it to the queue
-            queue.add(new Patient(firstName, lastName, symptoms));
-
-            // Add some text to the text area
-            textArea.append("Added Patient: " + firstName + " " + lastName + " " + symptoms + "\n");
-        }
-    }
-    
-    // Function when the process button is clicked
-    private class ProcessButtonListener implements ActionListener {
-        
-        // Override
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            
-            // Check first if the queue is not empty
-            if(!queue.isEmpty()) {
-               Patient patient = queue.poll();
-               textArea.append("Processing Patient: " + patient.getfirstName() + " " + patient.getlastName() + " " + patient.getSymptoms()+ "\n");
-            }
-            
-            // If the queue is empty
-            else {
-                textArea.append("No Patients to Process\n");
-            }
-        } 
-        
+    * { box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
     }
 
-    // Main method
-    public static void main(String args[]) {
-        CovidMonitor monitor = new CovidMonitor();
+    /* dreamy gradient background */
+    body {
+      background: radial-gradient(1200px 800px at 20% 20%, var(--bg1), transparent 60%),
+                  radial-gradient(1000px 700px at 80% 70%, var(--bg2), transparent 60%),
+                  linear-gradient(135deg, #fde1ff 0%, #e0f7ff 100%);
+      display: grid;
+      place-items: center;
+      padding: 24px;
     }
-}
 
-// Patient class
-class Patient {
-    private String firstName;
-    private String lastName;
-    private String symptoms;
-    
-    // Constructor
-    public Patient(String firstName, String lastName, String symptoms) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.symptoms = symptoms;
+    .card {
+      width: min(680px, 92vw);
+      background: var(--card);
+      backdrop-filter: blur(8px);
+      border-radius: 28px;
+      box-shadow:
+        0 10px 25px rgba(0,0,0,.08),
+        inset 0 1px 0 rgba(255,255,255,.7);
+      padding: 48px 36px;
+      text-align: center;
+      animation: float 6s ease-in-out infinite;
     }
-    
 
-    // Getters
-    public String getfirstName() {
-        return firstName;
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(36px, 6vw, 68px);
+      line-height: 1.05;
+      letter-spacing: 0.5px;
     }
-    
-    // Getters
-    public String getlastName() {
-        return lastName;
+
+    .heart {
+      display: inline-block;
+      transform: translateY(4px);
+      animation: beat 1.4s ease-in-out infinite;
+      margin-left: 8px;
     }
-    
-    // Getters
-    public String getSymptoms() {
-        return symptoms;
+
+    p {
+      margin: 10px 0 0;
+      font-size: clamp(14px, 2.5vw, 18px);
+      opacity: .75;
     }
-}
+
+    .pill {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255, 59, 129, .1);
+      border: 1px solid rgba(255, 59, 129, .25);
+      font-weight: 600;
+      letter-spacing: .2px;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1) translateY(4px); }
+      25% { transform: scale(1.08) translateY(4px); }
+      50% { transform: scale(0.98) translateY(4px); }
+      75% { transform: scale(1.1) translateY(4px); }
+    }
+
+    /* a simple heart using CSS only */
+    .heart::before,
+    .heart::after {
+      content: "";
+      display: inline-block;
+      width: 14px; height: 22px;
+      background: var(--accent);
+      border-radius: 14px 14px 0 0;
+      transform: rotate(-45deg);
+      transform-origin: bottom right;
+      margin-right: -3px;
+    }
+    .heart::after {
+      transform: rotate(45deg);
+      transform-origin: bottom left;
+      margin-right: 0;
+      margin-left: -3px;
+    }
+
+    /* subtle focus ring for accessibility if tabbed */
+    .card:focus-visible {
+      outline: 3px solid #ffffff;
+      outline-offset: 5px;
+    }
+  </style>
+</head>
+<body>
+  <main class="card" tabindex="0" aria-label="I Like You Too message">
+    <h1>I Like You Too <span class="heart" aria-hidden="true"></span></h1>
+    <p>just wanted to make it official ✨</p>
+    <div class="pill">you made me smile today</div>
+  </main>
+</body>
+</html>
